@@ -1,4 +1,24 @@
 /* Basic Reset */
+
+@keyframes gradientFlow {
+	0% {
+	  background: linear-gradient(270deg, #ff6347, #f9f077, #ff6347);
+	}
+	25% {
+	  background: linear-gradient(270deg, #f9f077, #77dd77, #ff6347);
+	}
+	50% {
+	  background: linear-gradient(270deg, #77dd77, #779ecb, #f9f077);
+	}
+	75% {
+	  background: linear-gradient(270deg, #779ecb, #ff6347, #77dd77);
+	}
+	100% {
+	  background: linear-gradient(270deg, #ff6347, #f9f077, #ff6347);
+	}
+  }
+
+  
 body {
 	margin: 0;
 	padding: 0;
@@ -10,6 +30,9 @@ body {
 	align-items: center;
 	min-height: 100vh;
 	text-align: center;
+
+	background-size: 400% 400%;
+	animation: gradientFlow 30s infinite ease-in-out;
 }
 
 .container {
@@ -28,7 +51,18 @@ body {
 	margin-bottom: 20px;
 }
 
-
+.profile-img:hover {
+	animation: glow 1.5s infinite alternate;
+  }
+  
+  @keyframes glow {
+	0% {
+	  box-shadow: 0 0 10px rgba(255, 99, 71, 0.7);
+	}
+	100% {
+	  box-shadow: 0 0 20px rgba(255, 99, 71, 1);
+	}
+  }
 
 h1 {
 	font-size: clamp(24px, 5vw, 36px);
@@ -116,6 +150,7 @@ p {
 .social-links a img:hover {
 	transform: scale(1.1); /* Subtle zoom effect */
 	box-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* Glow effect on hover */
+	transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 .colorgrad {
 	background: linear-gradient(270deg, #ff6347, #f9f077, #ff6347);
@@ -128,7 +163,7 @@ p {
 
 .footer {
 	text-align: center;
-	padding: 10px 0;
+	padding: 15px 0;
 	font-size: 14px;
 	color: #ddd;
 	background-color: rgba(0, 0, 0, 0.0); /* Slight transparent background */
@@ -158,4 +193,11 @@ p {
 .theme-button:hover {
 	background-color: #333;
 	color: #fff;
+}
+
+html {
+	scroll-behavior: smooth;
+  }
+body {
+  padding: 0 10px;
 }
