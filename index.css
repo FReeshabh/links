@@ -166,12 +166,13 @@ p {
 body {
 	display: flex;
 	flex-direction: column;
-	min-height: 100vh; /* Ensure the body takes the full height of the viewport */
+	min-height: 100vh; /* Ensure the body takes the full viewport height */
 	margin: 0;
+	padding: 0 10px; /* Padding to prevent side overflow */
   }
   
   .container {
-	flex: 1; /* Makes the content take up available space */
+	flex: 1; /* Pushes the footer to the bottom by making the container take available space */
   }
   
   .footer {
@@ -179,19 +180,23 @@ body {
 	padding: 15px 0;
 	font-size: 14px;
 	color: #ddd;
-	background-color: rgba(0, 0, 0, 0.0); /* Slight transparent background */
+	background-color: rgba(0, 0, 0, 0.0);
 	width: 100%;
-	bottom: 0;
-	left: 0;
-	position: relative; /* Default on mobile to avoid overlap */
+	position: relative; /* Prevents overlap by default */
+	word-wrap: break-word; /* Ensures long text wraps properly */
   }
   
   @media (min-width: 768px) {
 	.footer {
-	  position: fixed; /* Fixed only on wider screens */
+	  position: fixed; /* Fixed footer only on wider screens */
+	  bottom: 0;
+	  left: 0;
 	}
   }
-
+  
+  .footer p {
+	padding: 0 10px; /* Padding for readability */
+  }
 
 .theme-button {
 	margin-top: 20px;
