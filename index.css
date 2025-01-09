@@ -53,6 +53,8 @@ body {
 
 .profile-img:hover {
 	animation: glow 1.5s infinite alternate;
+	transform: scale(1.1); /* Subtle zoom effect */
+	box-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* Glow effect on hover */
   }
   
   @keyframes glow {
@@ -161,21 +163,35 @@ p {
 	animation: gradient-flow 5s ease infinite; /* Applying the animation */
 }
 
-.footer {
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh; /* Ensure the body takes the full height of the viewport */
+	margin: 0;
+  }
+  
+  .container {
+	flex: 1; /* Makes the content take up available space */
+  }
+  
+  .footer {
 	text-align: center;
 	padding: 15px 0;
 	font-size: 14px;
 	color: #ddd;
 	background-color: rgba(0, 0, 0, 0.0); /* Slight transparent background */
-	position: fixed; /* Makes it always stick to the bottom */
 	width: 100%;
 	bottom: 0;
 	left: 0;
-}
+	position: relative; /* Default on mobile to avoid overlap */
+  }
+  
+  @media (min-width: 768px) {
+	.footer {
+	  position: fixed; /* Fixed only on wider screens */
+	}
+  }
 
-.footer p {
-	margin: 0;
-}
 
 .theme-button {
 	margin-top: 20px;
